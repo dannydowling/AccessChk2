@@ -45,6 +45,12 @@ public class RunAccessChk
                   .Cast<FlagsEnum>();
 
 
+                // this is an issue, we need to change this to cast twice to and from enums.
+                // once to get the enums into integers, and then do a manual reduction of the flags value.
+                // after that we should have a set of integers that add up to make the original flag.
+                // we cast those back into enums and then .tostring() out to the console and to the 
+                // thing that checks for permission discrepancies.
+
                 if (flagInteger != someEnums.First())
                 {
                    flagInteger -= (x => x <= someEnums.Where(y => y.CompareTo(x) == -1).First));
